@@ -5,36 +5,42 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bản dịch – chữ lớn, dễ đọc</title>
 <style>
-  :root {
-    --bg: #0f172a;
-    --panel: #111827;
-    --text: #e5e7eb;
-    --muted: #9ca3af;
-    --accent: #22d3ee;
-    --maxw: 900px;
-    --base: 22px; /* 👈 starting font size */
+  :root{
+    --bg:#0e1117; --panel:#121826; --text:#e6edf3; --muted:#9aa4b2; --accent:#38bdf8;
+    --maxw: 72ch; /* 👈 readable line length */
+    --base:  clamp(20px, 2.6vw, 28px);  /* 👈 dynamic big text */
+    --lh:    1.85;
   }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
-  body { font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.8; font-size: var(--base); }
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 20px; }
-  .card { background: var(--panel); border-radius: 14px; padding: 20px; box-shadow: 0 8px 30px rgba(0,0,0,.35); }
-  h1,h2,h3 { line-height: 1.3; margin: 0.6em 0; }
-  h1 { font-size: 1.6em; }
-  h2 { font-size: 1.35em; color: var(--accent); }
-  p, li { font-size: 1em; }
-  a { color: #7dd3fc; word-break: break-word; }
-  hr { border: 0; height: 1px; background: #334155; margin: 20px 0; }
-  /* Table styling for your summaries */
-  table { width: 100%; border-collapse: collapse; margin: 12px 0; }
-  th, td { border: 1px solid #334155; padding: 12px; text-align: left; }
-  th { background: #0b1220; position: sticky; top: 0; }
-  tr:nth-child(even) td { background: #0d1424; }
-  /* Big, reachable buttons */
-  .controls { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:16px; }
-  .btn { border: 2px solid var(--accent); color: var(--accent); background: transparent; padding: 10px 14px; border-radius: 10px; font-size: 1rem; font-weight: 600; }
-  .btn:active { transform: scale(0.98); }
-  .meta { color: var(--muted); font-size: 0.95em; margin-bottom: 10px; }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text)}
+  body{font-family:-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;font-size:var(--base);line-height:var(--lh);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:20px}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .btn{border:2px solid var(--accent);color:var(--accent);background:transparent;padding:10px 14px;border-radius:10px;font-weight:700}
+  .btn:active{transform:scale(.98)}
+  .card{background:var(--panel);border-radius:14px;padding:18px 18px 6px;box-shadow:0 10px 28px rgba(0,0,0,.35)}
+  h1,h2,h3{line-height:1.25;margin:.6em 0 .35em}
+  h1{font-size:1.6em}
+  h2{font-size:1.25em;color:var(--accent);margin-top:1.1em}
+  p{margin:.55em 0}
+  hr{border:0;height:1px;background:#253046;margin:14px 0}
+  a{color:#8bd0ff}
+  /* Better Markdown defaults (lists, quotes, code) */
+  #content{word-wrap:break-word;overflow-wrap:anywhere;hyphens:auto}
+  #content ul{margin:.3em 0 .6em 1.2em}
+  #content ol{margin:.3em 0 .6em 1.4em}
+  #content li{margin:.25em 0}
+  blockquote{border-left:4px solid var(--accent);padding:.2em .8em;margin:.8em 0;background:#0b1220;border-radius:8px}
+  code{background:#0b1220;padding:.12em .35em;border-radius:6px}
+  /* Tables readable + wrap long cells */
+  table{width:100%;border-collapse:separate;border-spacing:0;margin:.6em 0;overflow:hidden;border-radius:10px}
+  th,td{border-bottom:1px solid #243044;padding:.6em .7em;vertical-align:top}
+  th{position:sticky;top:0;background:#0b1220;color:#cdeffd;text-align:left}
+  tr:nth-child(even) td{background:#0e1626}
+  /* Utility rows for “label: value” blobs */
+  .kv{display:grid;grid-template-columns:minmax(8ch,20ch) 1fr;gap:.4em 1em;margin:.4em 0}
+  .kv > div:first-child{color:#9cc7ff}
+  .meta{color:var(--muted);font-size:.9em;margin-bottom:.6em}
 </style>
 </head>
 <body>
@@ -42,185 +48,37 @@
     <div class="controls">
       <button class="btn" onclick="changeSize(2)">+ Tăng chữ</button>
       <button class="btn" onclick="changeSize(-2)">– Giảm chữ</button>
-      <button class="btn" onclick="changeContrast()">Chế độ tương phản</button>
+      <button class="btn" onclick="toggleContrast()">Chế độ tương phản</button>
+      <button class="btn" onclick="toggleWide()">Giãn dòng</button>
     </div>
 
     <div class="card">
       <h1>📄 Bản dịch (chữ lớn)</h1>
-      <div class="meta">Tự động tạo bởi iPhone • Sep 25, 2025 at 4:27 PM</div>
+      <div class="meta">Tự động tạo bởi iPhone • [[DATE]]</div>
       <hr>
-
-      <!-- ChatGPT → Markdown → HTML goes right here -->
-      <div id="content">
-        
-🏠 Thông Báo Thay Đổi Tiền Nhà
-
-  
-
-  
-
-Từ: Fort Worth Housing Solutions
-
-1407 Texas Street
-
-Fort Worth, TX 76102
-
-Điện thoại: (817) 333-3400
-
-Website: www.fwhs.org
-
-  
-
-Ngày in: 26/08/2025
-
-  
-
-  
-
-  
-
-  
-
-📋 Thông Tin Người Thuê
-
-  
-
-  
-
-- Tên: Alisha Friddle
-- Địa chỉ: 2817 Creekwood Ln, Fort Worth, TX 76123
-- Resident ID: 001004090
-- Voucher #: 141289
-- Document ID: 12038180
-
-  
-
-  
-
-  
-
-  
-
-  
-
-📌 Kết Quả Xét Duyệt
-
-  
-
-  
-
-Đã xét duyệt hồ sơ Housing Choice Voucher. Kết quả như sau:
-
-  
-
-- Annual Certification (Xét hàng năm)
-- Interim Certification (Xét tạm thời)
-- New Admission (Hợp đồng mới)
-- Unit Transfer (Chuyển nhà)
-
-  
-
-  
-
-  
-
-  
-
-  
-
-💵 Thay Đổi Tiền Thuê
-
-  
-
-|   |   |
-|---|---|
-|Nội dung|Số tiền|
-|Tổng tiền thuê hợp đồng|$2,632.00|
-|Người thuê trả|$485.00|
-|Trợ cấp Housing|$2,147.00|
-|Hỗ trợ điện/nước|$0.00|
-
-  
-
-- Ngày bắt đầu áp dụng: 01/09/2025
-
-  
-
-  
-
-  
-
-  
-
-  
-
-📞 Liên Hệ
-
-  
-
-  
-
-Nếu có thắc mắc về tính toán, xin gọi hoặc viết cho văn phòng:
-
-  
-
-- Người phụ trách: Abigail Calhoun – EHV Counselor
-- Điện thoại: (817) 333-3601
-
-  
-
-  
-
-Nếu thấy tính toán có sai sót, vui lòng liên hệ Housing Counselor để kiểm tra lại.
-
-  
-
-  
-
-  
-
-  
-
-📑 Bản Sao Gửi Cho Chủ Nhà
-
-  
-
-  
-
-- Chủ nhà ID: V803386
-- Tên: Kay Nguyen
-- Địa chỉ: 8421 Cedarcrest Ln, Fort Worth, TX 76123
-
-  
-
-  
-
-  
-
-  
-
-👉 Đây là thông báo chính thức từ Fort Worth Housing Solutions.
-
-  
-
-      </div>
+      <!-- ChatGPT → Markdown → HTML inserts here -->
+      <div id="content">[[CONTENT]]</div>
     </div>
   </div>
 
 <script>
-  // Font size controls (persists during viewing)
-  let base = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--base')) || 22;
-  function changeSize(delta){ 
-    base = Math.max(16, Math.min(40, base + delta));
-    document.documentElement.style.setProperty('--base', base + 'px');
+  let base = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--base'))||24;
+  let wide = false, high=false;
+  function changeSize(delta){
+    // clamp 18–46px
+    base = Math.max(18, Math.min(46, (parseFloat(getComputedStyle(document.body).fontSize)||24)+delta));
+    document.body.style.fontSize = base + 'px';
   }
-  // Quick contrast toggle for visibility
-  let high = false;
-  function changeContrast(){
+  function toggleContrast(){
     high = !high;
-    document.documentElement.style.setProperty('--bg', high ? '#000' : '#0f172a');
-    document.documentElement.style.setProperty('--panel', high ? '#000' : '#111827');
-    document.documentElement.style.setProperty('--text', high ? '#fff' : '#e5e7eb');
+    document.documentElement.style.setProperty('--bg',    high ? '#000'    : '#0e1117');
+    document.documentElement.style.setProperty('--panel', high ? '#000'    : '#121826');
+    document.documentElement.style.setProperty('--text',  high ? '#fff'    : '#e6edf3');
+  }
+  function toggleWide(){
+    wide = !wide;
+    document.documentElement.style.setProperty('--lh', wide ? 2.1 : 1.85);
+    document.querySelector('#content').style.lineHeight = 'var(--lh)';
   }
 </script>
 </body>
